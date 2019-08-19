@@ -12,9 +12,9 @@ class LoginApiTest(unittest.TestCase):
     """登录接口测试"""
 
     def setUp(self):
-        self.url = "https://10.0.22.17:21878/manager/signin"
+        self.url = "https://url"
         self.userName = "bsxz"
-        self.password = "33a1cd102fe76c63411cd97bc6be59ab"
+        self.password = "password"
 
     def test_1账号密码正确(self):
         r = requests.post(self.url,data={"password":self.password,"userName":self.userName})
@@ -54,5 +54,3 @@ class LoginApiTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
