@@ -6,22 +6,19 @@
 
 import unittest
 import requests
-from config.read_config import ReadConfig
-# 读取配置文件
-base_url = ReadConfig().get_http("base_url")
-userName = ReadConfig().get_login("userName")
-password = ReadConfig().get_login("password")
+
+from case.get_value import GetValue
 
 
-class LoginApiTest(unittest.TestCase):
+class LoginApiTest(unittest.TestCase, GetValue):
     """登录接口"""
 
     def setUp(self):
-        self.url = base_url+"manager/signin"
+        self.url = self.base_url+"manager/signin"
 
     def test_1(self):
         """账号密码正确"""
-        r = requests.post(self.url, data={"password": password, "userName": userName})
+        r = requests.post(self.url, data={"password": self.password, "userName": self.username})
         result = r.json()
         print(result)
         code = r.status_code
@@ -30,7 +27,7 @@ class LoginApiTest(unittest.TestCase):
 
     def test_2(self):
         """账号错误"""
-        r = requests.post(self.url, data={"password": password, "userName": '1'})
+        r = requests.post(self.url, data={"password": self.password, "userName": '1'})
         result = r.json()
         print(result)
         code = r.status_code
@@ -40,7 +37,7 @@ class LoginApiTest(unittest.TestCase):
 
     def test_3(self):
         """密码错误"""
-        r = requests.post(self.url, data={"password": "111", "userName": userName})
+        r = requests.post(self.url, data={"password": "111", "userName": self.username})
         result = r.json()
         print(result)
         code = r.status_code

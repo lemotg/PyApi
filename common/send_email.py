@@ -10,11 +10,10 @@ import smtplib
 from email.header import Header
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from config.read_config import ReadConfig
+from case.get_value import GetValue
 
-mail_pass = ReadConfig().get_email("mail_pass")
 
-class SendEmail(object):
+class SendEmail(GetValue):
     def __init__(self, file_path):
         self.file_path = file_path
 
@@ -25,12 +24,11 @@ class SendEmail(object):
         print("测试结束，报告路径: "+file_new)
         return file_new
 
-    @staticmethod
-    def send_mail(report_file):
+    def send_mail(self, report_file):
         # 邮件配置信息
         smtpserver = 'smtp.qq.com'
         user = '739965647@qq.com'
-        password = mail_pass
+        password = self.mail_pass
         sender = "739965647@qq.com"
         receiver = ["rockche@inslabs.org"]
 

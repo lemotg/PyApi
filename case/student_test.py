@@ -6,25 +6,23 @@
 
 import unittest
 import requests
+
 from common.get_cookie import LoginApi
-from common.utils import create_name, create_phone
-from config.read_config import ReadConfig
+from case.get_value import GetValue
 
-name = create_name()
-phone = create_phone()
+
 cookie = LoginApi().get_cookie()
-base_url = ReadConfig().get_http("base_url")
 
 
-class StudentApiTest(unittest.TestCase):
+class StudentApiTest(unittest.TestCase, GetValue):
     """学员相关接口"""
 
     def setUp(self):
-        self.url = base_url+"student/potential/new"
+        self.url = self.base_url+"student/potential/new"
 
     def test1(self):
         """新增学员"""
-        r = requests.post(self.url, data={"name": name, "phone": phone}, cookies=cookie)
+        r = requests.post(self.url, data={"name": self.name, "phone": self.phone}, cookies=cookie)
         result = r.json()
         print(result)
         code = r.status_code
@@ -33,4 +31,3 @@ class StudentApiTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
