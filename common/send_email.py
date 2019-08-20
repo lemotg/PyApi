@@ -10,7 +10,9 @@ import smtplib
 from email.header import Header
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from config.read_config import ReadConfig
 
+mail_pass = ReadConfig().get_email("mail_pass")
 
 class SendEmail(object):
     def __init__(self, file_path):
@@ -28,7 +30,7 @@ class SendEmail(object):
         # 邮件配置信息
         smtpserver = 'smtp.qq.com'
         user = '739965647@qq.com'
-        password = 'kerzawlpxyccbbge'
+        password = mail_pass
         sender = "739965647@qq.com"
         receiver = ["rockche@inslabs.org"]
 
