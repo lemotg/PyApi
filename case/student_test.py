@@ -8,7 +8,7 @@ import unittest
 import requests
 
 from common.get_cookie import LoginApi
-from case.get_value import GetValue
+from common.get_value import GetValue
 
 
 cookie = LoginApi().get_cookie()

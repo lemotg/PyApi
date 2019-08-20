@@ -10,6 +10,7 @@ import unittest
 from common.HTMLTestRunner_cn import HTMLTestRunner
 
 from common.send_email import SendEmail
+from common.get_value import GetValue
 
 if __name__ == '__main__':
     # 定义测试用例的目录为当前目录
@@ -32,9 +33,13 @@ if __name__ == '__main__':
     runner.run(discover)  # 运行测试用例
     fp.close()  # 关闭报告文件
 
-    # 实例化对象
-    demo = SendEmail(test_report)
-    # 获取最新报告
-    new_report = demo.new_report()
-    # 发送测试报告
-    demo.send_mail(new_report)
+    # 发送邮件开关is_debug,debug模式下，不发送邮件
+    if GetValue.is_debug == 'False':
+        # 实例化对象
+        demo = SendEmail(test_report)
+        # 获取最新报告
+        new_report = demo.new_report()
+        # 发送测试报告
+        demo.send_mail(new_report)
+    else:
+        pass

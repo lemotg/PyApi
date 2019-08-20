@@ -10,7 +10,7 @@ import smtplib
 from email.header import Header
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from case.get_value import GetValue
+from common.get_value import GetValue
 
 
 class SendEmail(GetValue):

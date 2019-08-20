@@ -7,7 +7,7 @@
 import unittest
 import requests
 
-from case.get_value import GetValue
+from common.get_value import GetValue
 
 
 class LoginApiTest(unittest.TestCase, GetValue):

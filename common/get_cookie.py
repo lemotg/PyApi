@@ -5,20 +5,15 @@
 # @describe: 登录接口
 
 import requests
-from config.read_config import ReadConfig
-
-# 读取配置文件
-base_url = ReadConfig().get_http("base_url")
-userName = ReadConfig().get_login("userName")
-password = ReadConfig().get_login("password")
+from common.get_value import GetValue
 
 
-class LoginApi(object):
+class LoginApi(GetValue):
     def __init__(self):
-        self.url = base_url + "manager/signin"
+        self.url = self.base_url + "manager/signin"
 
     def get_cookie(self):
-        r = requests.post(self.url, data={"userName": userName, "password": password})
+        r = requests.post(self.url, data={"userName": self.username, "password": self.password})
         login_cookie = r.cookies
         # print(login_cookie)
         return login_cookie
