@@ -4,6 +4,7 @@
     <list default="true" id="1ab40b72-9d76-4106-a5cf-4c866927f9b0" name="Default Changelist" comment="新增获取数据基础类">
       <change afterPath="$PROJECT_DIR$/case/get_value.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/report/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PyApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyApi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -285,7 +286,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564733770395</updated>
-      <workItem from="1566289037460" duration="5876000" />
+      <workItem from="1566289037460" duration="6224000" />
     </task>
     <task id="LOCAL-00001" summary="更新README.md">
       <created>1564799595348</created>
@@ -332,7 +333,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5876000" />
+    <option name="totallyTimeSpent" value="6224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1088" y="-844" width="1096" height="1906" extended-state="6" />
