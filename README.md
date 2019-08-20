@@ -10,4 +10,8 @@ Python版本与依赖库：
 * 测试用例单独编写为xxx_test.py文件,存放于case目录
 * 运行入口 run_test.py
 * common目录存放一些共用的方法
+* config目录存放配置文件和读取方法
 
+感谢：
+* 感谢虫师大佬的书籍及博客帮助：https://github.com/defnngj
+* 感谢TDanny大佬的帮助：https://github.com/DDDDanny
