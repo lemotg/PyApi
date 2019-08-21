@@ -79,5 +79,5 @@ class ReadIni(object):
 
 if __name__ == '__main__':
     # read = ReadIni()
-    read = ReadIni('./config.ini', 'HTTP')
-    print(read.get_value('baseurl'))
+    read = ReadIni('../config/config.ini', 'HTTP')
+    print(read.get_value('base_url'))
