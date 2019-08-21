@@ -24,8 +24,8 @@ class StudentApiTest(unittest.TestCase, GetValue):
         r = requests.post(self.url, data={"name": self.name, "phone": self.phone}, cookies=self.cookie)
         result = r.json()
         print(result)
-        code = r.status_code
-        self.assertEqual(code, 200)
+        self.assertEqual(result['data']['phone'], self.phone)
+        self.assertEqual(result['data']['name'], self.name)
 
 
 if __name__ == '__main__':
