@@ -7,6 +7,8 @@
 import logging
 import datetime
 
+from common.get_value import GetValue
+
 
 class TestLogs(object):
     def __init__(self):
@@ -22,16 +24,18 @@ class TestLogs(object):
         console.setFormatter(formatter)
         console.setLevel(logging.INFO)
 
-        # 生成文件路径
-        file_name = datetime.datetime.now().strftime("%Y-%m-%d")+".log"
+        # 生成日志文件的开关，为debug模式，不生成文件
+        if GetValue.is_debug == 'False':
+            # 生成文件路径
+            file_name = datetime.datetime.now().strftime("%Y-%m-%d")+".log"
 
-        # 设置文件日志信息
-        file_handle = logging.FileHandler('./logs/'+file_name, mode='a', encoding='utf-8')
-        file_handle.setFormatter(formatter)
-        file_handle.setLevel(logging.DEBUG)
+            # 设置文件日志信息
+            file_handle = logging.FileHandler('./logs/'+file_name, mode='a', encoding='utf-8')
+            file_handle.setFormatter(formatter)
+            file_handle.setLevel(logging.DEBUG)
+            self.logger.addHandler(file_handle)
 
         self.logger.addHandler(console)
-        self.logger.addHandler(file_handle)
 
     def get_log(self):
         return self.logger

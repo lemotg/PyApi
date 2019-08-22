@@ -25,7 +25,7 @@ class StudentApiTest(unittest.TestCase, GetValue):
         self.url = self.base_url+"student/potential/new"
         self.log.info('URL获取成功, URL:'+self.url)
 
-    def test1(self):
+    def test_1(self):
         """新增学员"""
         r = requests.post(self.url, data={"name": self.name, "phone": self.phone}, cookies=self.cookie)
         result = r.json()
