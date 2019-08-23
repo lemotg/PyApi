@@ -6,14 +6,13 @@
 
 import requests
 from common.get_value import GetValue
-from common.get_log import TestLogs
+from common.get_log import LogInfo
 
 
-class LoginApi(GetValue):
+class LoginApi(GetValue, LogInfo):
     def __init__(self):
         self.url = self.base_url + "manager/signin"
         self.url2 = self.base_url + "manager/switch_campus"
-        self.log = TestLogs().get_log()
 
     def get_cookie(self):
         r = requests.post(self.url, data={"userName": self.username, "password": self.password})

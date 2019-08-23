@@ -44,6 +44,10 @@ class TestLogs(object):
         pass
 
 
+class LogInfo(object):
+    log = TestLogs().get_log()
+
+
 if __name__ == '__main__':
     logger = TestLogs().get_log()
     logger.debug('this is a debug log')

@@ -8,14 +8,14 @@ import unittest
 import requests
 
 from common.get_value import GetValue
-from common.get_log import TestLogs
+from common.get_log import LogInfo
 
 
-class LoginApiTest(unittest.TestCase, GetValue):
+class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
     """登录接口"""
     @classmethod
     def setUpClass(cls) -> None:
-        cls.log = TestLogs().get_log()
+        pass
 
     def setUp(self):
         self.url = self.base_url+"manager/signin"

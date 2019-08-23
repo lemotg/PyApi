@@ -9,14 +9,14 @@ import requests
 
 from common.get_cookie import LoginApi
 from common.get_value import GetValue
-from common.get_log import TestLogs
+from common.get_log import LogInfo
 
 
-class StudentApiTest(unittest.TestCase, GetValue):
+class StudentApiTest(unittest.TestCase, GetValue, LogInfo):
     """学员相关接口"""
     @classmethod
     def setUpClass(cls) -> None:
-        cls.log = TestLogs().get_log()
+        pass
 
     def setUp(self):
         # 将获取cookie放入初始化函数中，否则cookie会丢失
