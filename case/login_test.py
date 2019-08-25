@@ -14,13 +14,17 @@ from common.get_log import LogInfo
 class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
     """登录接口"""
     @classmethod
+    @LogInfo.get_error
     def setUpClass(cls) -> None:
         cls.log.info('LoginApi测试用例开始执行')
+        cls.url = cls.base_url+"manager/signin"
+        cls.log.info('URL获取成功, URL:'+cls.url)
 
+    @LogInfo.get_error
     def setUp(self):
-        self.url = self.base_url+"manager/signin"
-        self.log.info('URL获取成功, URL:'+self.url)
+        pass
 
+    @LogInfo.get_error
     def test_1(self):
         """账号密码正确"""
         r = requests.post(self.url, data={"password": self.password, "userName": self.username})
@@ -30,6 +34,7 @@ class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
         self.assertEqual(code, 200)
         self.assertEqual(result['data']['name'], 'boss校长')
 
+    @LogInfo.get_error
     def test_2(self):
         """账号错误"""
         r = requests.post(self.url, data={"password": self.password, "userName": '1'})
@@ -40,6 +45,7 @@ class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
         self.assertEqual(result['status']['code'], 3134)
         self.assertEqual(result['status']['message'], '账号错误')
 
+    @LogInfo.get_error
     def test_3(self):
         """密码错误"""
         r = requests.post(self.url, data={"password": "111", "userName": self.username})
@@ -50,6 +56,7 @@ class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
         self.assertEqual(result['status']['code'], 3135)
         self.assertEqual(result['status']['message'], '密码错误')
 
+    @LogInfo.get_error
     def test_4(self):
         """账号密码为空"""
         r = requests.post(self.url, data={"password": "", "userName": ""})

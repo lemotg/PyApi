@@ -15,9 +15,11 @@ from common.get_log import LogInfo
 class StudentApiTest(unittest.TestCase, GetValue, LogInfo):
     """学员相关接口"""
     @classmethod
+    @LogInfo.get_error
     def setUpClass(cls) -> None:
         cls.log.info('StudentApi测试用例开始执行')
 
+    @LogInfo.get_error
     def setUp(self):
         # 将获取cookie放入初始化函数中，否则cookie会丢失
         self.cookie = LoginApi().get_cookie()
@@ -25,6 +27,7 @@ class StudentApiTest(unittest.TestCase, GetValue, LogInfo):
         self.url = self.base_url+"student/potential/new"
         self.log.info('URL获取成功, URL:'+self.url)
 
+    @LogInfo.get_error
     def test_1(self):
         """新增学员"""
         r = requests.post(self.url, data={"name": self.name, "phone": self.phone}, cookies=self.cookie)
