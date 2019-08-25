@@ -50,8 +50,8 @@ class LogInfo(object):
 
 
 if __name__ == '__main__':
-    logger = TestLogs().get_log()
-    logger.debug('this is a debug log')
-    logger.info('this is a info log')
-    logger.error('this is a error log')
-    logger.warning('this is a warning log')
+    logger = LogInfo()
+    logger.log.debug('this is a debug log')
+    logger.log.info('this is a info log')
+    logger.log.error('this is a error log')
+    logger.log.warning('this is a warning log')
