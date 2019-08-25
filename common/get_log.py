@@ -6,6 +6,7 @@
 
 import logging
 import datetime
+import os
 
 from common.get_value import GetValue
 
@@ -30,8 +31,13 @@ class TestLogs(object):
             # 生成文件路径
             file_name = datetime.datetime.now().strftime("%Y-%m-%d")+".log"
 
+            # 获取当前目录的绝对路径
+            cur_path = os.path.abspath(__file__)
+            # 获取logs文件夹的绝对路径
+            logs_path = os.path.join(os.path.abspath(os.path.dirname(cur_path) + os.path.sep + '../logs/'), '')
+
             # 设置文件日志信息
-            file_handle = logging.FileHandler('./logs/'+file_name, mode='a', encoding='utf-8')
+            file_handle = logging.FileHandler(logs_path + file_name, mode='a', encoding='utf-8')
             file_handle.setFormatter(formatter)
             file_handle.setLevel(logging.INFO)
             self.logger.addHandler(file_handle)
