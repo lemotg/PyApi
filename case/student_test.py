@@ -16,7 +16,7 @@ class StudentApiTest(unittest.TestCase, GetValue, LogInfo):
     """学员相关接口"""
     @classmethod
     def setUpClass(cls) -> None:
-        pass
+        cls.log.info('StudentApi测试用例开始执行')
 
     def setUp(self):
         # 将获取cookie放入初始化函数中，否则cookie会丢失
@@ -29,7 +29,7 @@ class StudentApiTest(unittest.TestCase, GetValue, LogInfo):
         """新增学员"""
         r = requests.post(self.url, data={"name": self.name, "phone": self.phone}, cookies=self.cookie)
         result = r.json()
-        self.log.info(result)
+        self.log.debug(result)
         self.assertEqual(result['data']['phone'], self.phone)
         self.assertEqual(result['data']['name'], self.name)
 

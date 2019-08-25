@@ -22,7 +22,8 @@ class TestLogs(object):
         # 设置控制台日志信息
         console = logging.StreamHandler()
         console.setFormatter(formatter)
-        console.setLevel(logging.INFO)
+        # 设置级别日志级别,Logging中有NOTSET < DEBUG < INFO < WARNING < ERROR < CRITICAL这几种级别，日志会记录设置级别以上的日志
+        console.setLevel(logging.DEBUG)
 
         # 生成日志文件的开关，为debug模式，不生成文件
         if GetValue.is_debug == 'False':
@@ -32,7 +33,7 @@ class TestLogs(object):
             # 设置文件日志信息
             file_handle = logging.FileHandler('./logs/'+file_name, mode='a', encoding='utf-8')
             file_handle.setFormatter(formatter)
-            file_handle.setLevel(logging.DEBUG)
+            file_handle.setLevel(logging.INFO)
             self.logger.addHandler(file_handle)
 
         self.logger.addHandler(console)
