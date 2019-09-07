@@ -11,8 +11,10 @@ from common.HTMLTestRunner_cn import HTMLTestRunner
 
 from common.send_email import SendEmail
 from common.get_value import GetValue
+from common.webhook import WebHook
 
 if __name__ == '__main__':
+    WebHook().web_hook('接口自动化测试任务开始', ['13219099429', ])
     # 定义测试用例的目录为当前目录
     test_dir = './case'
     test_report = './report'
@@ -43,3 +45,4 @@ if __name__ == '__main__':
         demo.send_mail(new_report)
     else:
         pass
+    WebHook().web_hook('接口自动化测试任务结束', ['13219099429', ])

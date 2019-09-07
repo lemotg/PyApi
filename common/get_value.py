@@ -21,6 +21,9 @@ class GetValue(object):
     # 获取debug开关的状态
     is_debug = ReadIni(node='MODEL').get_value("debug")
 
+    # 获取WebHook地址
+    web_hook_url = ReadIni(node='WEBHOOK').get_value('web_hook_url')
+
     # 执行工具方法
     name = create_name()
     phone = create_phone()
