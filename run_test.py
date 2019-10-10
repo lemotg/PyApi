@@ -36,7 +36,7 @@ if __name__ == '__main__':
     fp.close()  # 关闭报告文件
 
     # 发送邮件开关is_debug,debug模式下，不发送邮件
-    if GetValue.is_debug == 'False':
+    if GetValue.is_debug == 'True':
         # 实例化对象
         demo = SendEmail(test_report)
         # 获取最新报告
