@@ -17,7 +17,7 @@ class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
     @LogInfo.get_error
     def setUpClass(cls) -> None:
         cls.log.info('LoginApi测试用例开始执行')
-        cls.url = cls.base_url+"manager/signin"
+        cls.url = cls.base_url+"manager/signin"  # 登录
         cls.log.info('URL获取成功, URL:'+cls.url)
 
     @LogInfo.get_error

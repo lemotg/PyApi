@@ -42,7 +42,7 @@ class TestLogs(object):
             # 设置文件日志信息
             file_handle = logging.FileHandler(logs_path + file_name, mode='a', encoding='utf-8')
             file_handle.setFormatter(formatter)
-            file_handle.setLevel(logging.INFO)
+            file_handle.setLevel(logging.DEBUG)
             self.logger.addHandler(file_handle)
 
     def get_log(self):

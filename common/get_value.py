@@ -5,7 +5,7 @@
 # @describe: 配置文件读取
 
 from common.read_config import ReadIni
-from common.utils import create_name, create_phone
+from common.utils import create_name, create_phone, get_millis
 
 
 class GetValue(object):
@@ -27,3 +27,7 @@ class GetValue(object):
     # 执行工具方法
     name = create_name()
     phone = create_phone()
+    millis = get_millis()
+
+    # 定义参数传递方式
+    header = {'Content-Type': 'application/json'}

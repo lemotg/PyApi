@@ -21,7 +21,8 @@ class WebHook(GetValue):
             "text": {"content": text},
             "at": {
                 "atMobiles": mobile,
-                "isAtAll": True
+                "isAtAll": False
+                # "isAtAll": True
             }
         }
         headers = {'Content-Type': 'application/json'}
