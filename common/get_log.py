@@ -66,7 +66,7 @@ class LogInfo(object):
         def wrapper_func(self):
             try:
                 func(self)
-            except Exception:
+            except (RuntimeError, SyntaxError, AttributeError, ValueError, KeyError):
                 self.log.error(traceback.format_exc())
                 raise Exception('系统出现异常，请及时处理！')
         return wrapper_func
