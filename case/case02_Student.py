@@ -53,7 +53,15 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
     def test_2(self):
         """新增学员，手机号输入错误"""
         self.log.debug('URL获取成功, URL:' + self.url0)
-        r = requests.post(self.url0, json={"name": self.name, "phone": " "}, cookies=self.cookie,headers=self.header)
+        r = requests.post(
+            self.url0,
+            cookies=self.cookie,
+            headers=self.header,
+            json={
+                "name": self.name,
+                "phone": " "
+            }
+        )
         result = r.json()
         self.log.debug(result)
         self.assertEqual(result['status']['message'], '参数错误')
@@ -66,14 +74,16 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
             self.url1,
             cookies=self.cookie,
             headers=self.header,
-            json={"studentId": studentid,
-                  "trackBody": {
-                      "communicateDate": self.millis,
-                      "communicateType": 1,
-                      "communicator": 1,
-                      "content": "自动化测试跟进",
-                  },
-                  "studentType": "1"}
+            json={
+                "studentId": studentid,
+                "trackBody": {
+                    "communicateDate": self.millis,
+                    "communicateType": 1,
+                    "communicator": 1,
+                    "content": "自动化测试跟进",
+                },
+                "studentType": "1"
+            }
         )
         result = r.json()
         self.log.debug(result)
