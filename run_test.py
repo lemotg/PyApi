@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # 定义测试用例的目录为当前目录
     test_dir = './case'
     test_report = './report'
-    discover = unittest.defaultTestLoader.discover(test_dir, pattern='*_test.py')
+    discover = unittest.defaultTestLoader.discover(test_dir, pattern='case*.py')
 
     # 按照一定格式获取当前时间
     now = time.strftime("%Y-%m-%d %H.%M")

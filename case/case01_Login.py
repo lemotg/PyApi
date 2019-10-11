@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/8/2 16:17
 # @Author  : Rock
-# @File    : login_test.py.py
+# @File    : case01_Login.py.py
 # @describe: 登录退出接口
 
 import unittest
@@ -11,7 +11,7 @@ from common.get_value import GetValue
 from common.get_log import LogInfo
 
 
-class LoginApiTest(unittest.TestCase, GetValue, LogInfo):
+class ApiTest(unittest.TestCase, GetValue, LogInfo):
     """登录接口"""
     @classmethod
     @LogInfo.get_error

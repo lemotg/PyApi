@@ -2,7 +2,7 @@
 # @Time    : 2019/8/19 11:53
 # @Author  : Rock
 # @File    : get_cookie.py
-# @describe: 登录接口
+# @describe: 获取cookie
 
 import requests
 from common.get_value import GetValue

@@ -5,7 +5,7 @@
 # @describe: 配置文件读取
 
 from common.read_config import ReadIni
-from common.utils import create_name, create_phone, get_millis
+from common.utils import CreateData
 
 
 class GetValue(object):
@@ -25,9 +25,10 @@ class GetValue(object):
     web_hook_url = ReadIni(node='WEBHOOK').get_value('web_hook_url')
 
     # 执行工具方法
-    name = create_name()
-    phone = create_phone()
-    millis = get_millis()
+    name = CreateData().create_name()
+    phone = CreateData().create_phone()
+    millis = CreateData().get_millis()
+    course_name = CreateData().create_coursename()
 
     # 定义参数传递方式
     header = {'Content-Type': 'application/json'}

@@ -941,7 +941,7 @@ class HTMLTestRunner(Template_mixin):
             rmap[cls].sort(key=cmp_to_key(lambda a,b:1 if a[1].id()>b[1].id() else ( 1 if a[1].id()==b[1].id() else -1)))
         r = [(cls, rmap[cls]) for cls in classes]
         # name = t.id().split('.')[-1]
-        r.sort(key=cmp_to_key(lambda a, b: 1 if a[0].__name__ > b[0].__name__ else -1))
+        r.sort(key=cmp_to_key(lambda a, b: -1 if a[0].__name__ > b[0].__name__ else 1))
         return r
 
     def getReportAttributes(self, result):
