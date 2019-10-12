@@ -8,10 +8,11 @@ Python版本与依赖库：
 
 目录介绍：
 * 测试报告利用HTMLTestRunner生成，存放于report目录
-* 测试用例单独编写为xxx_test.py文件,存放于case目录
+* 测试用例单独编写为case_xxx.py文件,存放于case目录
 * 运行入口 run_test.py
 * common目录存放一些共用的方法
 * config目录存放配置文件和读取方法
+* logs和report目录分别存放生成的日志和报告
 
 感谢：
 * 感谢虫师大佬的书籍及博客帮助：https://github.com/defnngj
