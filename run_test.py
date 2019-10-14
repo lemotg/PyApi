@@ -14,7 +14,8 @@ from common.get_value import GetValue
 from common.webhook import WebHook
 
 if __name__ == '__main__':
-    WebHook().web_hook('接口自动化测试任务开始', ['17726376076'])
+    if GetValue.is_debug == 'False':
+        WebHook().web_hook('接口自动化测试任务开始', ['17726376076'])
     # 定义测试用例的目录为当前目录
     test_dir = './case'
     test_report = './report'
@@ -36,13 +37,14 @@ if __name__ == '__main__':
     fp.close()  # 关闭报告文件
 
     # 发送邮件开关is_debug,debug模式下，不发送邮件
-    if GetValue.is_debug == 'True':
+    if GetValue.is_debug == 'False':
         # 实例化对象
         demo = SendEmail(test_report)
         # 获取最新报告
         new_report = demo.new_report()
         # 发送测试报告
         demo.send_mail(new_report)
+        # WebHook
+        WebHook().web_hook('接口自动化测试任务结束', ['17726376076'])
     else:
         pass
-    WebHook().web_hook('接口自动化测试任务结束', ['17726376076'])
