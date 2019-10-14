@@ -30,7 +30,7 @@ class TestLogs(object):
         self.logger.addHandler(console)
 
         # 生成日志文件的开关，为debug模式，不生成文件
-        if GetValue.is_debug == 'True':
+        if GetValue.is_debug == 'False':
             # 生成文件路径
             file_name = datetime.datetime.now().strftime("%Y-%m-%d")+".log"
 

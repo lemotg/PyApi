@@ -25,10 +25,10 @@ class GetValue(object):
     web_hook_url = ReadIni(node='WEBHOOK').get_value('web_hook_url')
 
     # 执行工具方法
-    name = CreateData().create_name()
-    phone = CreateData().create_phone()
-    millis = CreateData().get_millis()
-    course_name = CreateData().create_coursename()
+    # name = CreateData().create_name()
+    # phone = CreateData().create_phone()
+    # millis = CreateData().get_millis()
+    # course_name = CreateData().create_coursename()
 
     # 定义参数传递方式
     header = {'Content-Type': 'application/json'}

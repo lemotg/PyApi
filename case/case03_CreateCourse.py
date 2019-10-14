@@ -7,6 +7,8 @@
 import unittest
 import requests
 
+from common.utils import CreateData
+
 from common.get_cookie import LoginApi
 from common.get_value import GetValue
 from common.get_log import LogInfo
@@ -26,7 +28,7 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
 
     @LogInfo.get_error
     def setUp(self):
-        pass
+        self.course_name = CreateData.create_coursename()
 
     @LogInfo.get_error
     def test_1(self):
