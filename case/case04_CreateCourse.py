@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/11 14:54
 # @Author  : Rock
-# @File    : case03_CreateCourse.py
+# @File    : case04_CreateCourse.py
 # @describe: 新建课程接口
 
 import unittest
 import requests
 
 from common.utils import CreateData
-
 from common.get_cookie import LoginApi
 from common.get_value import GetValue
 from common.get_log import LogInfo
@@ -32,7 +31,7 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
 
     @LogInfo.get_error
     def test_1(self):
-        """正常新增课程"""
+        """正常新增班组课程"""
         self.log.debug('URL获取成功, URL:' + self.url0)
         r = requests.post(
             self.url0,
@@ -45,7 +44,38 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
                 "duration": 600000,
                 "periodsPerTimes": 10,
                 "unitPrice": 1000,
-                "remark": "我是备注",
+                "remark": "班组课",
+                "packages": [
+                    {
+                        "packageUnit": 1,
+                        "containNum": 10,
+                        "totalPrice": 1000
+                    }
+                ],
+                "isEnabled": True
+            },
+        )
+
+        result = r.json()
+        self.log.debug(result)
+        self.assertIn('courseId', result['data'])
+
+    @LogInfo.get_error
+    def test_2(self):
+        """正常新增1对1课程"""
+        self.log.debug('URL获取成功, URL:' + self.url0)
+        r = requests.post(
+            self.url0,
+            headers=self.header,
+            cookies=self.cookie,
+            json={
+                "courseType": 2,
+                "name": self.course_name,
+                "chargeType": 2,
+                "duration": 600000,
+                "periodsPerTimes": 10,
+                "unitPrice": 1000,
+                "remark": "1对1",
                 "packages": [
                     {
                         "packageUnit": 1,

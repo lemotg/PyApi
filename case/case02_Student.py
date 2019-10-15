@@ -8,7 +8,6 @@ import unittest
 import requests
 
 from common.utils import CreateData
-
 from common.get_cookie import LoginApi
 from common.get_value import GetValue
 from common.get_log import LogInfo

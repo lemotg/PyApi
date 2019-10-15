@@ -18,7 +18,7 @@ class LoginApi(GetValue, LogInfo):
         r = requests.post(self.url, data={"userName": self.username, "password": self.password})
         login_cookie = r.cookies
         # 调用校区切换接口，保证在测试校区运行测试，避免测试数据污染
-        requests.post(self.url2, data={"campusId": "N89r0ljVIIw0"}, cookies=login_cookie)
+        requests.post(self.url2, data={"campusId": self.campusId}, cookies=login_cookie)
         self.log.info('校区切换成功')
         return login_cookie
 

@@ -5,15 +5,14 @@
 # @describe: 配置文件读取
 
 from common.read_config import ReadIni
-from common.utils import CreateData
 
 
 class GetValue(object):
     # 读取配置文件
     base_url = ReadIni(node='HTTP').get_value("base_url")
-
     username = ReadIni(node='LOGIN').get_value("userName")
     password = ReadIni(node='LOGIN').get_value("password")
+    campusId = ReadIni(node='LOGIN').get_value("campusId")
 
     # 获取邮箱密码
     mail_pass = ReadIni(node='EMAIL').get_value("mail_pass")
@@ -23,12 +22,7 @@ class GetValue(object):
 
     # 获取WebHook地址
     web_hook_url = ReadIni(node='WEBHOOK').get_value('web_hook_url')
-
-    # 执行工具方法
-    # name = CreateData().create_name()
-    # phone = CreateData().create_phone()
-    # millis = CreateData().get_millis()
-    # course_name = CreateData().create_coursename()
+    web_hook_phone = ReadIni(node='WEBHOOK').get_value('web_hook_phone')
 
     # 定义参数传递方式
     header = {'Content-Type': 'application/json'}

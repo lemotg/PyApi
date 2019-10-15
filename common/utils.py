@@ -28,6 +28,6 @@ class CreateData(object):
 
     @staticmethod
     def create_coursename():
-        last = random.randint(1, 99)
+        last = random.randint(99, 1000)
         course_name = "自动化测试{}".format(last)
         return course_name
