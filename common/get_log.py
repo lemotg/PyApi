@@ -19,7 +19,7 @@ class TestLogs(object):
         self.logger.setLevel(logging.DEBUG)
 
         formatter = logging.Formatter(
-            '[%(asctime)s]-[%(levelname)s] %(filename)s--> %(funcName)s ----->%(message)s'
+            '\033[0;32m[%(asctime)s]-[%(levelname)s] %(filename)s--> %(funcName)s ----->%(message)s\033[0m'
         )
 
         # 设置控制台日志信息
