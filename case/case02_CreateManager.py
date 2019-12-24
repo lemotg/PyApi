@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/15 14:59
 # @Author  : Rock
-# @File    : case03_CreateManager.py
+# @File    : case02_CreateManager.py
 # @describe: 新建员工账号
 import unittest
 import requests
@@ -52,6 +52,26 @@ class ApiTest(unittest.TestCase, GetValue, LogInfo):
         global managerId
         managerId = result['data']['managerId']
         self.log.debug(managerId)
+
+    def test_2(self):
+        """新增助教账号"""
+        self.log.debug('URL获取成功, URL:' + self.url0)
+        r = requests.post(
+            self.url0,
+            cookies=self.cookie,
+            headers=self.header,
+            json={"name": "助教",
+                  "accountName": self.name,
+                  "phone": self.phone,
+                  "password": self.password,
+                  "groupIds": ["SYSTEM_ASSISTANT"],
+                  "campusIds": [self.campusId],
+                  "level": 1},
+        )
+        result = r.json()
+        self.log.debug(result)
+        self.assertEqual(result['data']['phone'], self.phone)
+        self.assertEqual(result['data']['userName'], self.name)
 
 
 if __name__ == '__main__':

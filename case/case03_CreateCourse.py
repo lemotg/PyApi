@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/11 14:54
 # @Author  : Rock
-# @File    : case04_CreateCourse.py
+# @File    : case03_CreateCourse.py
 # @describe: 新建课程接口
 
 import unittest

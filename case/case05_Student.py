@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/8/19 15:49
 # @Author  : Rock
-# @File    : case02_Student.py
+# @File    : case05_Student.py
 # @describe: 学员相关接口
 
 import unittest

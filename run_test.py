@@ -15,7 +15,7 @@ from common.webhook import WebHook
 
 if __name__ == '__main__':
     if GetValue.is_debug == 'False':
-        WebHook().web_hook('接口自动化测试任务开始', GetValue.web_hook_phone)
+        WebHook().web_hook('铁憨憨开始执行接口自动化测试任务啦', GetValue.web_hook_phone)
     # 定义测试用例的目录为当前目录
     test_dir = './case'
     test_report = './report'
@@ -45,6 +45,6 @@ if __name__ == '__main__':
         # 发送测试报告
         demo.send_mail(new_report)
         # WebHook
-        WebHook().web_hook('接口自动化测试任务结束', GetValue.web_hook_phone)
+        WebHook().web_hook('接口自动化测试任务结束啦，快去邮箱查看测试报告吧', GetValue.web_hook_phone)
     else:
         pass
