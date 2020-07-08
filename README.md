@@ -2,7 +2,7 @@ PyApi接口自动化测试框架
 
 基于Request+unittest实现接口自动化
 
-Python的版本与依赖库：
+Python版本与依赖库：
 - python3.5+ :https://www.python.org/
 - Requests : https://github.com/kennethreitz/requests
 
